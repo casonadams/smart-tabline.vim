@@ -168,7 +168,7 @@ function! ctrlspace#api#Tabline() abort "{{{
     endfor
 
 	let tabline .= '%#TabLineFill#'
-    let tabline = ' [%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)] '
+    let tabline .= ' [%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)] '
     let tabline .= '%#TabLine#'
     let tabline .= '%#TabLineSel#'
     return tabline
