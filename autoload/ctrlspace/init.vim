@@ -13,7 +13,7 @@ function! ctrlspace#init#Init() "{{{
 	au VimEnter * call ctrlspace#buffers#Init()
 
     let g:ctrlspace#tabline#wrapping_around = get(g:, 'ctrlspace#tabline#wrapping_around', 1)
-    let g:ctrlspace#tabline#sep = get(g:, 'ctrlspace#tabline#sep', '')
+    let g:ctrlspace#tabline#sep = get(g:, 'ctrlspace#tabline#sep', '|')
     let g:ctrlspace#tabline#sort_method = get(g:, 'ctrlspace#tabline#sort_method', 'i')
     let g:ctrlspace#tabline#fnamemod = get(g:, 'ctrlspace#tabline#fnamemod', ':t')
 endfunction "}}}
