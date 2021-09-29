@@ -170,7 +170,7 @@ function! ctrlspace#api#Tabline() abort "{{{
 	let tabline .= '%#TabLineFill#'
     let tabline .= '%#TabLine#'
     let tabline .= '%#TabLineSel#'
-    let tabline .= '%-[%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)] '
+    let tabline .= '%-.[%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)] '
 
     return tabline
 endfunction "}}}
