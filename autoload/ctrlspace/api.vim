@@ -164,7 +164,7 @@ function! ctrlspace#api#Tabline() abort "{{{
 
         let tabline .= b['index'] == currentBuf ? '%#TabLineSel#' : '%#TabLine#'
         let tabline .= text
-        let tabline .= b['modified'] ? '+ ' : ' '
+        let tabline .= b['modified'] ? ' +' : ''
         let leftLen += len(text) + 2
     endfor
 
