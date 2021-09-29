@@ -11,7 +11,7 @@ function! ctrlspace#api#BufferList(tabnr)
 		let bufModified = (getbufvar(i, '&modified'))
 
 		if !strlen(bufname) && (bufModified || bufVisible)
-			let bufname = '[' . i . '*]'
+			let bufname = '[' . i . '*No Name]'
 		endif
 
 		if strlen(bufname)
@@ -41,7 +41,7 @@ function! ctrlspace#api#Buffers(tabnr)
 		let bufname = bufname(i)
 
 		if !strlen(bufname) && (getbufvar(i, '&modified') || (index(visibleBuffers, i) != -1))
-			let bufname = '[' . i . '*]'
+			let bufname = '[' . i . '*No Name]'
 		endif
 
 		if strlen(bufname)
@@ -80,7 +80,7 @@ function! ctrlspace#api#TabTitle(tabnr, bufnr, bufname)
 
 	if empty(title)
 		if empty(bufname)
-			let title = "[" . bufnr . "*]"
+			let title = "[" . bufnr . "*No Name]"
 		else
             if g:ctrlspace#tabline#fnamemod != ''
                 let title = "[" . fnamemodify(bufname, g:ctrlspace#tabline#fnamemod) . "]"
@@ -164,16 +164,15 @@ function! ctrlspace#api#Tabline() abort "{{{
 
         let tabline .= b['index'] == currentBuf ? '%#TabLineSel#' : '%#TabLine#'
         let tabline .= text
-        let leftLen += len(text)
     endfor
 
 	let tabline .= '%#TabLineFill#'
     let tabline .= '%#TabLine#'
-    let right = '%t[%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)]'
+    let right = ' t%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)'
 
     let space = &columns - leftLen - 3 - len(string(tabpagenr())) - 1 - len(string(tabpagenr('$')))
     let tabline .= repeat(' ', space)
-    let tabline .= ' '
+    let tabline .= '|'
     let tabline .= '%#TabLineSel#'
     let tabline .= right
 
