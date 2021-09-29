@@ -174,7 +174,7 @@ function! ctrlspace#api#Tabline() abort "{{{
     " let space = &columns - leftLen - 3 - len(string(tabpagenr())) - 1 - len(string(tabpagenr('$')))
     " let tabline .= '|'
     let tabline .= right
-    let tabline .= repeat(' ', space)
+    " let tabline .= repeat(' ', space)
     let tabline .= '%#TabLineSel#'
 
     return tabline
