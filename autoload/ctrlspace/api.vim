@@ -171,11 +171,11 @@ function! ctrlspace#api#Tabline() abort "{{{
     let tabline .= '%#TabLine#'
     let right = ' [%(%{tabpagenr()}%)/%(%{tabpagenr("$")}%)] '
 
-    let space = &columns - leftLen - 3 - len(string(tabpagenr())) - 1 - len(string(tabpagenr('$')))
-    let tabline .= repeat(' ', space)
+    " let space = &columns - leftLen - 3 - len(string(tabpagenr())) - 1 - len(string(tabpagenr('$')))
     " let tabline .= '|'
-    let tabline .= '%#TabLineSel#'
     let tabline .= right
+    let tabline .= repeat(' ', space)
+    let tabline .= '%#TabLineSel#'
 
     return tabline
 endfunction "}}}
